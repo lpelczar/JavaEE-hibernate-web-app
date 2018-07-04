@@ -3,47 +3,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Customers</title>
-	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" />
+    <title>Customers</title>
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
 </head>
 
 <body>
-	<div id="wrapper">
-		<div id="header">
-			<h2>Customer Manager</h2>
-		</div>
-	</div>
-	
-	<div id="container">
-		<div id="content">
+<div id="wrapper">
+    <div id="header">
+        <h2>CRM - Customer Relationship Manager</h2>
+    </div>
+</div>
 
-			<input type="button" value="Add Customer"
-				   onclick="window.location.href='showFormForAdd'; return false;"
-				   class="add-button"
-			/>
+<div id="container">
+    <div id="content">
 
-			<table>
-				<tr>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Email</th>
-					<th>Action</th>
-				</tr>
+        <input type="button" value="Add Customer"
+               onclick="window.location.href='add'; return false;"
+               class="add-button"
+        />
 
-				<%--@elvariable id="customers" type="java.util.List"--%>
-				<c:forEach var="tempCustomer" items="${customers}">
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
 
-					<tr>
-						<td> ${tempCustomer.firstName} </td>
-						<td> ${tempCustomer.lastName} </td>
-						<td> ${tempCustomer.email} </td>
+            <%--@elvariable id="customers" type="java.util.List"--%>
+            <c:forEach var="tempCustomer" items="${customers}">
 
-					</tr>
+                <tr>
+                    <td> ${tempCustomer.firstName} </td>
+                    <td> ${tempCustomer.lastName} </td>
+                    <td> ${tempCustomer.email} </td>
 
-				</c:forEach>
-			</table>
-		</div>
-	</div>
+                </tr>
+
+            </c:forEach>
+        </table>
+    </div>
+</div>
 </body>
 </html>
 

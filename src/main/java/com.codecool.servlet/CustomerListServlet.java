@@ -11,14 +11,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/list")
+@WebServlet("/customer/list")
 public class CustomerListServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         List<Customer> customers = new ArrayList<>();
-        customers.add(new Customer(1, "sdsd", "sdsdd", "dssdds"));
+        customers.add(new Customer(1, "Lukasz", "Pelczar", "lukipel@gmail.com"));
 
         request.setAttribute("customers", customers);
         request.getRequestDispatcher("/WEB-INF/view/list-customers.jsp").forward(request,response);
