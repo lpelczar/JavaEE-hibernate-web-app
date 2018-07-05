@@ -19,7 +19,7 @@ public class AddCustomerServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
@@ -27,6 +27,7 @@ public class AddCustomerServlet extends HttpServlet {
 
         Customer customer = new Customer(firstName, lastName, email);
 
+        // TODO 1: add service / dao / hibernate
         CustomerListServlet.customers.add(customer);
 
         response.sendRedirect("/customer/list");
