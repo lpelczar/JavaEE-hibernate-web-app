@@ -1,5 +1,7 @@
 package com.codecool.servlet;
 
+import com.codecool.dao.CustomerDAO;
+import com.codecool.dao.HibernateCustomerDAO;
 import com.codecool.model.Customer;
 
 import javax.servlet.ServletException;
@@ -14,12 +16,12 @@ import java.util.List;
 @WebServlet("/customer/list")
 public class CustomerListServlet extends HttpServlet {
 
-    static List<Customer> customers = new ArrayList<>();
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.setAttribute("customers", customers);
+        CustomerDAO customerDAO = new HibernateCustomerDAO();
+
+        request.setAttribute("customers", customerDAO.getCustomers());
         request.getRequestDispatcher("/WEB-INF/view/list-customers.jsp").forward(request,response);
     }
 }
