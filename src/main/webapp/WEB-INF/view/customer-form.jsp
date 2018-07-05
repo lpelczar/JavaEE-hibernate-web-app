@@ -17,21 +17,24 @@
 <div id="container">
     <h3>Add Customer</h3>
 
+    <form name="addCustomer" action="${pageContext.request.contextPath}/customer/add" method="post">
+
     <table>
         <tbody>
+
         <tr>
             <td><label>First name:</label></td>
-            <td></td>
+            <td><input type="text" name="firstName"/></td>
         </tr>
 
         <tr>
             <td><label>Last name:</label></td>
-            <td></td>
+            <td><input type="text" name="lastName"/></td>
         </tr>
 
         <tr>
             <td><label>Email:</label></td>
-            <td></td>
+            <td><input type="email" name="email"/></td>
         </tr>
 
         <tr>
@@ -39,8 +42,11 @@
             <td><input type="submit" value="Save" class="save"/></td>
         </tr>
 
+
         </tbody>
     </table>
+
+    </form>
 
     <div style="clear: both;"></div>
 

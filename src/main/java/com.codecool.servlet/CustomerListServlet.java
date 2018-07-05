@@ -14,11 +14,10 @@ import java.util.List;
 @WebServlet("/customer/list")
 public class CustomerListServlet extends HttpServlet {
 
+    static List<Customer> customers = new ArrayList<>();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        List<Customer> customers = new ArrayList<>();
-        customers.add(new Customer(1, "Lukasz", "Pelczar", "lukipel@gmail.com"));
 
         request.setAttribute("customers", customers);
         request.getRequestDispatcher("/WEB-INF/view/list-customers.jsp").forward(request,response);
