@@ -25,10 +25,10 @@ public class AddCustomerServlet extends HttpServlet {
         String lastName = request.getParameter("lastName");
         String email = request.getParameter("email");
 
-        Customer customer = new Customer(firstName, lastName, email);
-
-        // TODO 1: add service / dao / hibernate
-        CustomerListServlet.customers.add(customer);
+//        Customer customer = new Customer(firstName, lastName, email);
+//
+//        // TODO 1: add service / dao / hibernate
+//        CustomerListServlet.customers.add(customer);
 
         response.sendRedirect("/customer/list");
     }

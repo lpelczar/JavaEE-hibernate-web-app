@@ -28,7 +28,7 @@ tr:nth-child(odd) {background: #BBBBBB}
 
 #wrapper {width: 100%; margin-top: 0; }
 #header {width: 70%; margin-top: 0; padding:15px 0 15px 15px;}
-#header h2 {width: 100%; margin:auto; color: #FFFFFF;}
+#header h2 {width: 100%; margin:auto; color: black}
 #container {width: 100%; margin:auto}
 #container h3 {color: #000;}
 #container #content {margin-top: 20px;}
