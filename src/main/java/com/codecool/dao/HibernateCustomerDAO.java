@@ -18,4 +18,12 @@ public class HibernateCustomerDAO implements CustomerDAO {
         currentSession.getTransaction().commit();
         return customers;
     }
+
+    @Override
+    public void addCustomer(Customer customer) {
+        Session currentSession = HibernateUtil.getSessionFactory().getCurrentSession();
+        currentSession.beginTransaction();
+        currentSession.save(customer);
+        currentSession.getTransaction().commit();
+    }
 }

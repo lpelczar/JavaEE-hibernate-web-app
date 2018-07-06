@@ -2,6 +2,8 @@ package com.codecool.servlet;
 
 
 import com.codecool.model.Customer;
+import com.codecool.service.CustomerService;
+import com.codecool.service.CustomerServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +15,8 @@ import java.io.IOException;
 @WebServlet("/customer/add")
 public class AddCustomerServlet extends HttpServlet {
 
+    private CustomerService customerService = new CustomerServiceImpl();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/view/customer-form.jsp").forward(request,response);
@@ -20,16 +24,11 @@ public class AddCustomerServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-        String firstName = request.getParameter("firstName");
-        String lastName = request.getParameter("lastName");
-        String email = request.getParameter("email");
-
-//        Customer customer = new Customer(firstName, lastName, email);
-//
-//        // TODO 1: add service / dao / hibernate
-//        CustomerListServlet.customers.add(customer);
-
+        Customer customer = new Customer();
+        customer.setFirstName(request.getParameter("firstName"));
+        customer.setLastName(request.getParameter("lastName"));
+        customer.setEmail(request.getParameter("email"));
+        customerService.addCustomer(customer);
         response.sendRedirect("/customer/list");
     }
 }
