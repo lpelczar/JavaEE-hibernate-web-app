@@ -26,4 +26,14 @@ public class HibernateCustomerDAO implements CustomerDAO {
         currentSession.save(customer);
         currentSession.getTransaction().commit();
     }
+
+    @Override
+    public void deleteCustomer(int id) {
+        Session currentSession = HibernateUtil.getSessionFactory().getCurrentSession();
+        currentSession.beginTransaction();
+        Query query = currentSession.createQuery("delete from Customer where id=:customerId");
+        query.setParameter("customerId", id);
+        query.executeUpdate();
+        currentSession.getTransaction().commit();
+    }
 }
