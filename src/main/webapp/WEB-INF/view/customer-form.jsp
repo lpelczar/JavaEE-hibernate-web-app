@@ -24,17 +24,17 @@
 
         <tr>
             <td><label>First name:</label></td>
-            <td><label><input type="text" name="firstName"/></label></td>
+            <td><label><input type="text" name="firstName" required/></label></td>
         </tr>
 
         <tr>
             <td><label>Last name:</label></td>
-            <td><label><input type="text" name="lastName"/></label></td>
+            <td><label><input type="text" name="lastName" required/></label></td>
         </tr>
 
         <tr>
             <td><label>Email:</label></td>
-            <td><label><input type="email" name="email"/></label></td>
+            <td><label><input type="email" name="email" required/></label></td>
         </tr>
 
         <tr>
