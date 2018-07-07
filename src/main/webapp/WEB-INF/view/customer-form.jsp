@@ -19,22 +19,26 @@
 
     <form name="addCustomer" action="${pageContext.request.contextPath}/customer/add" method="post">
 
-    <table>
+        <label>
+            <input type="text" name="customerId" value="${customer.id}" hidden>
+        </label>
+
+        <table>
         <tbody>
 
         <tr>
             <td><label>First name:</label></td>
-            <td><label><input type="text" name="firstName" required/></label></td>
+            <td><label><input type="text" name="firstName" value="${customer.firstName}" required/></label></td>
         </tr>
 
         <tr>
             <td><label>Last name:</label></td>
-            <td><label><input type="text" name="lastName" required/></label></td>
+            <td><label><input type="text" name="lastName" value="${customer.lastName}" required/></label></td>
         </tr>
 
         <tr>
             <td><label>Email:</label></td>
-            <td><label><input type="email" name="email" required/></label></td>
+            <td><label><input type="email" name="email" value="${customer.email}" required/></label></td>
         </tr>
 
         <tr>

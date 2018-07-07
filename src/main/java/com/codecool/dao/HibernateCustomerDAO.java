@@ -23,7 +23,8 @@ public class HibernateCustomerDAO implements CustomerDAO {
     public void addCustomer(Customer customer) {
         Session currentSession = HibernateUtil.getSessionFactory().getCurrentSession();
         currentSession.beginTransaction();
-        currentSession.save(customer);
+        System.out.println(customer);
+        currentSession.saveOrUpdate(customer);
         currentSession.getTransaction().commit();
     }
 
@@ -35,5 +36,14 @@ public class HibernateCustomerDAO implements CustomerDAO {
         query.setParameter("customerId", id);
         query.executeUpdate();
         currentSession.getTransaction().commit();
+    }
+
+    @Override
+    public Customer getCustomerById(int id) {
+        Session currentSession = HibernateUtil.getSessionFactory().getCurrentSession();
+        currentSession.beginTransaction();
+        Customer customer = currentSession.get(Customer.class, id);
+        currentSession.getTransaction().commit();
+        return customer;
     }
 }

@@ -25,6 +25,11 @@ public class AddCustomerServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Customer customer = new Customer();
+
+        if (request.getParameter("customerId") != null && !request.getParameter("customerId").isEmpty()) {
+            customer.setId(Integer.parseInt(request.getParameter("customerId")));
+        }
+
         customer.setFirstName(request.getParameter("firstName"));
         customer.setLastName(request.getParameter("lastName"));
         customer.setEmail(request.getParameter("email"));

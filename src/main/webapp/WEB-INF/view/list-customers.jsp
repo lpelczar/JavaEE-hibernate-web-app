@@ -33,6 +33,10 @@
             <%--@elvariable id="customers" type="java.util.List"--%>
             <c:forEach var="tempCustomer" items="${customers}">
 
+                <c:url var="updateLink" value="/customer/update">
+                    <c:param name="customerId" value="${tempCustomer.id}" />
+                </c:url>
+
                 <c:url var="deleteLink" value="/customer/delete">
                     <c:param name="customerId" value="${tempCustomer.id}" />
                 </c:url>
@@ -43,6 +47,8 @@
                     <td> ${tempCustomer.email} </td>
 
                     <td>
+                        <a href="${updateLink}">Update</a>
+                        |
                         <a href="${deleteLink}"
                            onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
                     </td>
